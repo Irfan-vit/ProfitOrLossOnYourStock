@@ -3,12 +3,17 @@ import "./styles.css";
 import profit from "./profit.gif";
 import loss from "./loss.gif";
 import gif from "./laod.gif";
+import poor from "./poor2.gif";
+import sadbackground from "./sadbg.gif";
+import happpybackground from "./blackBg.jpg";
+import nothing from "./nothing.gif";
 export default function App() {
   var [purchase, setPurchase] = useState();
   var [quantity, setQuantity] = useState();
   var [current, setCurrent] = useState();
   var [output, setOutput] = useState();
   var [graphics, setGraphics] = useState();
+  var [theme, setTheme] = useState();
   function getPurchasePrice(event) {
     purchase = event.target.value;
     setPurchase(purchase);
@@ -29,12 +34,14 @@ export default function App() {
       purchase
     ).toFixed(2);
     console.log(differencePercentage);
-    if (differencePercentage < 0) {
+    if (differencePercentage < -50) {
       graphics = <img style={{ marginTop: "1rem" }} src={gif}></img>;
       setGraphics(graphics);
       setTimeout(() => {
-        graphics = <img style={{ marginTop: "1rem" }} src={loss}></img>;
+        graphics = <img style={{ marginTop: "1rem" }} src={poor}></img>;
         setGraphics(graphics);
+        theme = false;
+        setTheme(theme);
         output =
           "You lost " +
           Math.abs(differencePercentage) +
@@ -42,13 +49,15 @@ export default function App() {
           " your total loss is : ₹" +
           Math.abs(difference);
         setOutput(output);
-      }, 3000);
+      }, 1500);
     } else if (differencePercentage > 0) {
       graphics = <img style={{ marginTop: "1rem" }} src={gif}></img>;
       setGraphics(graphics);
       setTimeout(() => {
         graphics = <img style={{ marginTop: "1rem" }} src={profit}></img>;
         setGraphics(graphics);
+        theme = true;
+        setTheme(theme);
         output =
           "You Won " +
           Math.abs(differencePercentage) +
@@ -56,21 +65,95 @@ export default function App() {
           " your total profit is : ₹" +
           Math.abs(difference);
         setOutput(output);
-      }, 3000);
+      }, 1500);
+    } else if (differencePercentage < 0 && differencePercentage >= -50) {
+      graphics = <img style={{ marginTop: "1rem" }} src={gif}></img>;
+      setGraphics(graphics);
+      setTimeout(() => {
+        graphics = <img style={{ marginTop: "1rem" }} src={loss}></img>;
+        setGraphics(graphics);
+        theme = true;
+        setTheme(theme);
+        output =
+          "You Won " +
+          Math.abs(differencePercentage) +
+          "%. " +
+          " your total profit is : ₹" +
+          Math.abs(difference);
+        setOutput(output);
+      }, 1500);
+    } else if (current === purchase) {
+      graphics = <img style={{ marginTop: "1rem" }} src={gif}></img>;
+      setGraphics(graphics);
+      setTimeout(() => {
+        graphics = <img style={{ marginTop: "1rem" }} src={nothing}></img>;
+        setGraphics(graphics);
+        theme = true;
+        setTheme(theme);
+        output =
+          "You Won " +
+          Math.abs(differencePercentage) +
+          "%. " +
+          " your total profit is : ₹" +
+          Math.abs(difference);
+        setOutput(output);
+      }, 1500);
     }
   }
   return (
     <div className="App">
-      <h1>Purchase Price (₹)</h1>
-      <input type="number" onChange={getPurchasePrice} />
-      <h1>Purchase Quantity</h1>
-      <input type="number" onChange={getPurchaseQuantity} />
-      <h1>Current price (₹)</h1>
-      <input type="number" onChange={getCurrentPrice} />
-      <h1>Calculate</h1>
-      <button onClick={clickHandler}>check</button>
-      <h1>{output}</h1>
-      <div>{graphics}</div>
+      <div
+        className="values"
+        style={{
+          backgroundImage:
+            theme !== false
+              ? `url(${happpybackground})`
+              : `url(${sadbackground})`
+        }}
+      >
+        <h1>Check Profit/Loss on your Stock</h1>
+        <div class="form__group">
+          <input
+            onChange={getPurchasePrice}
+            type="number"
+            class="form__field"
+            placeholder="(₹)"
+          />
+          <label for="name" class="form__label">
+            Purchase Price (₹)
+          </label>
+        </div>
+
+        <div class="form__group">
+          <input
+            onChange={getPurchaseQuantity}
+            type="number"
+            class="form__field"
+            placeholder="Quantity"
+          />
+          <label for="name" class="form__label">
+            Purchase Quantity
+          </label>
+        </div>
+
+        <div class="form__group">
+          <input
+            onChange={getCurrentPrice}
+            type="number"
+            class="form__field"
+            placeholder="(₹)"
+          />
+          <label for="name" class="form__label">
+            Current price (₹)
+          </label>
+        </div>
+
+        <button onClick={clickHandler}>check</button>
+      </div>
+      <div className="result">
+        <h1 style={{ color: "black" }}>{output}</h1>
+        <div>{graphics}</div>
+      </div>
     </div>
   );
 }

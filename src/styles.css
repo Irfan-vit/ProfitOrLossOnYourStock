@@ -1,4 +1,90 @@
 .App {
   font-family: sans-serif;
+  padding: 0 4rem;
+  position: relative;
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(82, 80, 80, 0.363);
+}
+.values {
+  padding: 10px 0px;
+  background-size: 100%;
+}
+h1 {
+  color: aliceblue;
   text-align: center;
+  margin-bottom: -10px;
+}
+.form__group {
+  position: relative;
+  padding-top: 60px;
+  margin-top: 10px;
+  width: 70%;
+  margin: auto;
+  margin-left: 20px;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 50%;
+  border: 0;
+  border-bottom: 2px solid gray;
+  outline: 0;
+  /* font-size: 0.7rem; */
+  color: white;
+  background: transparent;
+  transition: border-color 0.2s;
+  margin: 20px;
+}
+.form__label {
+  padding: 15px 0px;
+  margin-top: 20px;
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: white;
+  /* margin: auto; */
+  text-align: center;
+}
+button {
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+}
+.result {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+button {
+  background-image: linear-gradient(
+    to right,
+    #304352 0%,
+    #d7d2cc 51%,
+    #304352 100%
+  );
+}
+button {
+  padding: 15px 45px;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+  border: none;
+}
+
+button:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+img {
+  border-radius: 20px;
+  filter: drop-shadow(0 0 0.75rem rgb(56, 55, 55));
 }
