@@ -11,7 +11,7 @@ export default function App() {
   var [purchase, setPurchase] = useState();
   var [quantity, setQuantity] = useState();
   var [current, setCurrent] = useState();
-  var [output, setOutput] = useState("Please Input all the values Correctly");
+  var [output, setOutput] = useState("Please Input all the values for calculating your stocks Profit/Loss");
   var [graphics, setGraphics] = useState();
   var [theme, setTheme] = useState();
   var [btnChk, setBtnChk] = useState(false);
@@ -19,7 +19,7 @@ export default function App() {
     purchase = event.target.value;
     if(purchase <= 0) {
       // alert("Please Enter correct values" + purchase + ": is not accaptable");
-      setOutput("Please Enter correct values" + purchase + ": is not accaptable");
+      setOutput("Please Enter correct values" + purchase + ": current values are not accaptable");
     } else {
       setPurchase(purchase);
     }
@@ -28,7 +28,7 @@ export default function App() {
     quantity = event.target.value;
     if(quantity <= 0) {
       // alert("Please Enter correct values" + quntaty + ": is not accaptable");
-      setOutput("Please Enter correct values" + quntaty + ": is not accaptable");
+      setOutput("Please Enter correct values" + quntaty + ": current values are not accaptable");
     } else {
       setQuantity(quantity);
     }
@@ -37,7 +37,7 @@ export default function App() {
     current = event.target.value;
     if(current <= 0) {
       // alert("Please Enter correct values" + current + ": is not accaptable");
-      setOutput("Please Enter correct values" + current + ": is not accaptable");
+      setOutput("Please Enter correct values" + current + ": current values are not accaptable");
     } else {
       setCurrent(current);
     }
@@ -51,7 +51,7 @@ export default function App() {
     ).toFixed(2);
     console.log(differencePercentage);
     if(isNaN(differencePercentage) || differencePercentage === undefined || isNaN(difference) || difference === undefined){
-      setOutput("Please Enter correct values" + quntaty + ": is not accaptable");
+      setOutput("Please Enter correct values" + quntaty + ": current values are not accaptable");
       setBtnChk(false);
     }
     else if (differencePercentage < -50) {
