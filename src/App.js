@@ -34,7 +34,12 @@ export default function App() {
   }
   function getCurrentPrice(event) {
     current = event.target.value;
-    setCurrent(current);
+    if(current <= 0) {
+      alert("Please Enter correct values" + current + ": is not accaptable");
+      setCurrent("Please Enter correct values" + current + ": is not accaptable");
+    } else {
+      setCurrent(current);
+    }
   }
   function clickHandler() {
     var difference = (current - purchase) * quantity;
