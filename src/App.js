@@ -14,6 +14,7 @@ export default function App() {
   var [output, setOutput] = useState();
   var [graphics, setGraphics] = useState();
   var [theme, setTheme] = useState();
+  var [btnChk, setBtnChk] = useState(false);
   function getPurchasePrice(event) {
     purchase = event.target.value;
     if(purchase <= 0) {
@@ -49,7 +50,12 @@ export default function App() {
       purchase
     ).toFixed(2);
     console.log(differencePercentage);
-    if (differencePercentage < -50) {
+    if(isNaN(differencePercentage) || differencePercentage === undefined || isNaN(difference) || difference === undefined){
+      setOutput("Please Enter correct values" + quntaty + ": is not accaptable");
+      setBtnChk(false);
+    }
+    else if (differencePercentage < -50) {
+      setBtnChk(true);
       graphics = <img style={{ marginTop: "1rem" }} src={gif}></img>;
       setGraphics(graphics);
       setTimeout(() => {
@@ -66,6 +72,7 @@ export default function App() {
         setOutput(output);
       }, 1500);
     } else if (differencePercentage > 0) {
+      setBtnChk(true);
       graphics = <img style={{ marginTop: "1rem" }} src={gif}></img>;
       setGraphics(graphics);
       setTimeout(() => {
@@ -82,6 +89,7 @@ export default function App() {
         setOutput(output);
       }, 1500);
     } else if (differencePercentage < 0 && differencePercentage >= -50) {
+      setBtnChk(true);
       graphics = <img style={{ marginTop: "1rem" }} src={gif}></img>;
       setGraphics(graphics);
       setTimeout(() => {
@@ -98,6 +106,7 @@ export default function App() {
         setOutput(output);
       }, 1500);
     } else if (current === purchase) {
+      setBtnChk(true);
       graphics = <img style={{ marginTop: "1rem" }} src={gif}></img>;
       setGraphics(graphics);
       setTimeout(() => {
@@ -134,6 +143,7 @@ export default function App() {
             min = "1"  
             class="form__field"
             placeholder="(₹)"
+            required
           />
           <label for="name" class="form__label">
             Purchase Price (₹)
@@ -147,6 +157,7 @@ export default function App() {
             min = "1"
             class="form__field"
             placeholder="Quantity"
+            required            
           />
           <label for="name" class="form__label">
             Purchase Quantity
@@ -160,6 +171,7 @@ export default function App() {
             min = "1"
             class="form__field"
             placeholder="(₹)"
+            required
           />
           <label for="name" class="form__label">
             Current price (₹)
