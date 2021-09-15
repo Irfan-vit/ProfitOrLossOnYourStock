@@ -19,7 +19,7 @@ export default function App() {
     purchase = event.target.value;
     if(purchase <= 0) {
       // alert("Please Enter correct values" + purchase + ": is not accaptable");
-      setOutput("Please Enter correct values" + purchase + ": current values are not accaptable");
+      // setOutput("Please Enter correct values" + purchase + ": current values are not accaptable");
     } else {
       setPurchase(purchase);
     }
@@ -27,8 +27,7 @@ export default function App() {
   function getPurchaseQuantity(event) {
     quantity = event.target.value;
     if(quantity <= 0) {
-      // alert("Please Enter correct values" + quntaty + ": is not accaptable");
-      setOutput("Please Enter correct values" + quntaty + ": current values are not accaptable");
+      setBtnChk(false);
     } else {
       setQuantity(quantity);
     }
@@ -36,8 +35,7 @@ export default function App() {
   function getCurrentPrice(event) {
     current = event.target.value;
     if(current <= 0) {
-      // alert("Please Enter correct values" + current + ": is not accaptable");
-      setOutput("Please Enter correct values" + current + ": current values are not accaptable");
+      setBtnChk(false);
     } else {
       setCurrent(current);
     }
