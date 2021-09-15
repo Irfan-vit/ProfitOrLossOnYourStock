@@ -18,7 +18,7 @@ export default function App() {
     purchase = event.target.value;
     if(purchase <= 0) {
       alert("Please Enter correct values" + purchase + ": is not accaptable");
-      setPurchase("Please Enter correct values" + purchase + ": is not accaptable");
+      setOutput("Please Enter correct values" + purchase + ": is not accaptable");
     } else {
       setPurchase(purchase);
     }
@@ -27,7 +27,7 @@ export default function App() {
     quantity = event.target.value;
     if(quantity <= 0) {
       alert("Please Enter correct values" + quntaty + ": is not accaptable");
-      setQuantity("Please Enter correct values" + quntaty + ": is not accaptable");
+      setOutput("Please Enter correct values" + quntaty + ": is not accaptable");
     } else {
       setQuantity(quantity);
     }
@@ -36,7 +36,7 @@ export default function App() {
     current = event.target.value;
     if(current <= 0) {
       alert("Please Enter correct values" + current + ": is not accaptable");
-      setCurrent("Please Enter correct values" + current + ": is not accaptable");
+      setOutput("Please Enter correct values" + current + ": is not accaptable");
     } else {
       setCurrent(current);
     }
@@ -90,10 +90,10 @@ export default function App() {
         theme = true;
         setTheme(theme);
         output =
-          "You Won " +
+          "You Lost " +
           Math.abs(differencePercentage) +
           "%. " +
-          " your total profit is : ₹" +
+          " your total loss is : ₹" +
           Math.abs(difference);
         setOutput(output);
       }, 1500);
@@ -131,6 +131,7 @@ export default function App() {
           <input
             onChange={getPurchasePrice}
             type="number"
+            min = "1"  
             class="form__field"
             placeholder="(₹)"
           />
@@ -143,6 +144,7 @@ export default function App() {
           <input
             onChange={getPurchaseQuantity}
             type="number"
+            min = "1"
             class="form__field"
             placeholder="Quantity"
           />
@@ -155,6 +157,7 @@ export default function App() {
           <input
             onChange={getCurrentPrice}
             type="number"
+            min = "1"
             class="form__field"
             placeholder="(₹)"
           />
