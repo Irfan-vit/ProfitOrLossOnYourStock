@@ -11,7 +11,7 @@ export default function App() {
   var [purchase, setPurchase] = useState();
   var [quantity, setQuantity] = useState();
   var [current, setCurrent] = useState();
-  var [output, setOutput] = useState();
+  var [output, setOutput] = useState("Please Input all the values Correctly");
   var [graphics, setGraphics] = useState();
   var [theme, setTheme] = useState();
   var [btnChk, setBtnChk] = useState(false);
