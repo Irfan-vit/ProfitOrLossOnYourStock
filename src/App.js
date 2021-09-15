@@ -16,14 +16,21 @@ export default function App() {
   var [theme, setTheme] = useState();
   function getPurchasePrice(event) {
     purchase = event.target.value;
-    setPurchase(purchase);
+    if(purchase <= 0) {
+      alert("Please Enter correct values" + purchase + ": is not accaptable");
+      setPurchase("Please Enter correct values" + purchase + ": is not accaptable");
+    } else {
+      setPurchase(purchase);
+    }
   }
   function getPurchaseQuantity(event) {
     quantity = event.target.value;
     if(quantity <= 0) {
+      alert("Please Enter correct values" + quntaty + ": is not accaptable");
       setQuantity("Please Enter correct values" + quntaty + ": is not accaptable");
+    } else {
+      setQuantity(quantity);
     }
-    setQuantity(quantity);
   }
   function getCurrentPrice(event) {
     current = event.target.value;
