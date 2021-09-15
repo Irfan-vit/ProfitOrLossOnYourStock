@@ -178,7 +178,7 @@ export default function App() {
           </label>
         </div>
 
-        <button disabled={btnChk} onClick={clickHandler}>check</button>
+        <button disabled={!btnChk} onClick={clickHandler}>check</button>
       </div>
       <div className="result">
         <h1 style={{ color: "black" }}>{output}</h1>
