@@ -20,6 +20,9 @@ export default function App() {
   }
   function getPurchaseQuantity(event) {
     quantity = event.target.value;
+    if(quantity <= 0) {
+      setQuantity("Please Enter correct values" + quntaty + ": is not accaptable");
+    }
     setQuantity(quantity);
   }
   function getCurrentPrice(event) {
