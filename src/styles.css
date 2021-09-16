@@ -87,4 +87,6 @@ button:hover {
 img {
   border-radius: 20px;
   filter: drop-shadow(0 0 0.75rem rgb(56, 55, 55));
+  height: 220px;
+  width: 260px;
 }
