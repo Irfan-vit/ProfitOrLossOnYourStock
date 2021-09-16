@@ -177,7 +177,7 @@ export default function App() {
           </label>
         </div>
 
-        <button disabled={btnChk} onClick={clickHandler}>check</button>
+        <button type="submit" disabled={btnChk} onClick={clickHandler}>check</button>
         </form>
       </div>
       <div className="result">
