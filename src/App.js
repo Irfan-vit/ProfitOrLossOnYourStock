@@ -17,16 +17,17 @@ export default function App() {
   var [btnChk, setBtnChk] = useState(false);
   function getPurchasePrice(event) {
     purchase = event.target.value;
-    if(purchase <= 0) {
+    if(purchase <= 0 || !purchase) {
       // alert("Please Enter correct values" + purchase + ": is not accaptable");
-      // setOutput("Please Enter correct values" + purchase + ": current values are not accaptable");
+      setOutput("Please Enter correct values");
     } else {
       setPurchase(purchase);
     }
   }
   function getPurchaseQuantity(event) {
     quantity = event.target.value;
-    if(quantity <= 0) {
+    if(quantity <= 0 || !quantity) {
+      setOutput("Please Enter correct values");
       setBtnChk(false);
     } else {
       setQuantity(quantity);
@@ -34,8 +35,9 @@ export default function App() {
   }
   function getCurrentPrice(event) {
     current = event.target.value;
-    if(current <= 0) {
+    if(current <= 0 || !current) {
       setBtnChk(false);
+      setOutput("Please Enter correct values");
     } else {
       setCurrent(current);
     }
