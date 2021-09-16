@@ -133,6 +133,7 @@ export default function App() {
               : `url(${sadbackground})`
         }}
       >
+        <form>
         <h1>Check Profit/Loss on your Stock</h1>
         <div class="form__group">
           <input
@@ -177,6 +178,7 @@ export default function App() {
         </div>
 
         <button disabled={btnChk} onClick={clickHandler}>check</button>
+        </form>
       </div>
       <div className="result">
         <h1 style={{ color: "black" }}>{output}</h1>
