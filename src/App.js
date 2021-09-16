@@ -181,7 +181,7 @@ export default function App() {
         <h1 style={{ color: "black" }}>{output}</h1>
         <div>{graphics}</div>
       </div>
-            <footer id="footer">
+      <footer id="footer">
         <div id="footer-container">
           <div className="social">
             <h3>Social</h3>

@@ -94,7 +94,7 @@ img {
   /* margin-top: 46.4vh;
   height: 20vh; */
   position: absolute;
-  top: 80%;
+  top: 100%;
   width: 100%;
   height: 30vh;
   background-color: brown;
@@ -112,12 +112,15 @@ img {
 .social {
   display: flex;
   flex-direction: column;
+  color: white;
 }
 
 .social a {
   display: flex;
   flex-direction: column;
   text-decoration: none;
+  color: white;
+  padding-top: 10px;
 }
 
 .social a:hover {
