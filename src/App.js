@@ -43,7 +43,7 @@ export default function App() {
     }
   }
   function clickHandler() {
-    if(isNaN(difference) || difference === undefined || !difference || !current || !purchase || !quantity) {
+    if(!current || !purchase || !quantity) {
       setOutput("Please Enter correct values");
       return;
     }
