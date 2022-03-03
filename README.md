@@ -13,4 +13,4 @@
 
 ## Info
 
-This Project is made as an assignment for completing level 0 of  [neoG camp](https://neog.camp/qualifier/point-system)
+
